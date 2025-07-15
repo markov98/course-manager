@@ -5,7 +5,7 @@ const { SECRET } = require("../constants");
 exports.auth = (req, res, next) => {
   req.token = req.header("X-Authorization");
 
-  if (req.token && !revokedTokens.includes(req.token)) {
+  if (req.token) {
     try {
       const decodedToken = jwt.verify(req.token, SECRET);
       req.user = decodedToken;
