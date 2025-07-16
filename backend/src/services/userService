@@ -2,17 +2,17 @@ const jwt = require("jsonwebtoken");
 const db = require('../config/db')
 const { SECRET } = require("../constants");
 
-exports.login = async (username, password) => {
-    const stmt = db.prepare('SELECT id, username, username, password FROM users WHERE username = ?');
-    const user = stmt.get(username);
+exports.login = async (email, password) => {
+    const stmt = db.prepare('SELECT id, email, email, password FROM users WHERE email = ?');
+    const user = stmt.get(email);
 
     if (!user) {
-        throw new Error('Incorrect username or password');
+        throw new Error('Incorrect email or password');
     }
 
 
     if (password !== user.password) {
-        throw new Error('Incorrect username or password');
+        throw new Error('Incorrect email or password');
     }
 
     return getResult(user);
