@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Course } from '../types/course';
+import { api }  from '../../env';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,6 @@ export class CourseService {
 
     getCourses() {
     return this.http
-      .get<Course[]>(`http://localhost:3000/courses/get-all`);
+      .get<Course[]>(`${api}/courses/get-all`);
   }
 }
