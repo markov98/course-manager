@@ -1,3 +1,18 @@
+.top {
+    height: 40px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.top a,
+.top span {
+    width: 156px;
+    height: 42.43949890136719px;
+    font-size: 16px;
+    color: #0B1829;
+    text-decoration: none;
+}
+
 .course-list-heading {
     width: 1192px;
     height: 48px;
@@ -6,4 +21,62 @@
     letter-spacing: 0%;
     text-align: center;
     vertical-align: middle;
+}
+
+.search-container {
+    height: 72px;
+    padding-top: 12px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    border-radius: 24px;
+    background-color: #B6CDEA;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 380px;
+    height: 48px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    border-radius: 32px;
+    gap: 10px;
+    background-color: #FFFFFF;
+}
+
+.search-bar input {
+    width: 314px;
+    height: 16px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #003170;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.search-bar button {
+    padding: 0%;
+    color: #003170;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+}
+
+.course-list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-right: 16px;
+    padding-left: 16px;
+    gap: 24px;
 }

@@ -1,0 +1,34 @@
+.course-item {
+    width: 328px;
+    height: 376px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 32px;
+    padding-left: 16px;
+    gap: 16px;
+    border-radius: 16px;
+    background-color: #B6CDEA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.course-item h2 {
+    font-size: 26px;
+    text-align: center;
+    vertical-align: middle;
+    color: #0B1829;
+}
+
+.course-item img {
+    width: 280px;
+    height: 208px;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.course-item p {
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+}

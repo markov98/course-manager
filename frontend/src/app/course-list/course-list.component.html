@@ -1,7 +1,16 @@
+<div class="top">
+    <a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Log-in</a>
+    <span *ngIf="isLoggedIn" class="logout" (click)="logout()">Log-out</span>
+</div>
 <h1 class="course-list-heading">Courses</h1>
 <main>
-    <div *ngFor="let course of courses">
-        <h2 class="course-title">{{course.name}}</h2>
-        <p class="course-description">{{course.description}}</p>
-    </div>
+    <section class="search-container">
+        <form class="search-bar">
+            <input type="text" placeholder="Search">
+            <button type="submit" class="material-symbols-outlined">search</button>
+        </form>
+    </section>
+    <section class="course-list-container">
+        <app-course-item *ngFor="let course of courses" [course]="course" />
+    </section>
 </main>
