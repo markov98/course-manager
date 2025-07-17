@@ -1,11 +1,13 @@
 const jwt = require("jsonwebtoken"); 
 const { SECRET } = require("../constants"); 
 
+const revokedTokens = [];
+
 // Middleware for token authentication
 exports.auth = (req, res, next) => {
   req.token = req.header("X-Authorization");
 
-  if (req.token) {
+  if (req.token && !revokedTokens.includes(req.token)) {
     try {
       const decodedToken = jwt.verify(req.token, SECRET);
       req.user = decodedToken;
@@ -25,4 +27,9 @@ exports.isAuth = (req, res, next) => {
   } else {
     next();
   }
+};
+
+// Function to revoke tokens
+exports.revokeToken = (token) => {
+  revokedTokens.push(token);
 };
