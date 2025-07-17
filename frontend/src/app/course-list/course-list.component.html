@@ -5,12 +5,12 @@
 <h1 class="course-list-heading">Courses</h1>
 <main>
     <section class="search-container">
-        <form class="search-bar">
-            <input type="text" placeholder="Search">
+        <form [formGroup]="form" (ngSubmit)="search()" class="search-bar">
+            <input type="text" placeholder="Search" formControlName="searchQuery">
             <button type="submit" class="material-symbols-outlined">search</button>
         </form>
     </section>
     <section class="course-list-container">
-        <app-course-item *ngFor="let course of courses" [course]="course" />
+        <app-course-item *ngFor="let course of filteredCourses" [course]="course" />
     </section>
 </main>
