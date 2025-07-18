@@ -1,17 +1,17 @@
 <h1 class="login-heading">Welcome</h1>
-<form class="login-container">
+<form class="login-container" [formGroup]="form" (ngSubmit)="login()">
     <h2 class="login-subheading">Let's get you logged-in</h2>
     <div class="login-inputs-container">
         <div>
-            <input type="email" placeholder="Your email">
+            <input type="email" placeholder="Your email" formControlName="email">
             <div class="material-symbols-outlined">email</div>
         </div>
         <div>
-            <input [type]="showPassword ? 'text' : 'password'" placeholder="Your password">
+            <input [type]="showPassword ? 'text' : 'password'" placeholder="Your password" formControlName="password">
             <div class="material-symbols-outlined" (click)="togglePassword()" style="cursor: pointer;">
                 {{ showPassword ? 'visibility_off' : 'visibility' }}
             </div>
         </div>
     </div>
-    <button type="submit">Log-in</button>
+    <button type="submit" [disabled]="form.invalid">Log-in</button>
 </form>
