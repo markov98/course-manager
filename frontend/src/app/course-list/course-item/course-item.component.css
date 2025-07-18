@@ -13,7 +13,20 @@
     align-items: center;
 }
 
-.course-item h2 {
+.course-item:hover {
+    background-color: #D1E2F9;
+
+    .course-item-header aside {
+        visibility: visible;
+    }
+}
+
+.course-item-header aside {
+    visibility: hidden;
+    margin-left: 300px;
+}
+
+.course-item-header h2 {
     font-size: 26px;
     text-align: center;
     vertical-align: middle;
@@ -31,4 +44,31 @@
     font-size: 16px;
     line-height: 16px;
     text-align: center;
+}
+
+.editable-heading {
+    font-size: 26px;
+    text-align: center;
+    color: #0B1829;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    padding: 0;
+}
+
+.editable-paragraph {
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    resize: none;
+    font-family: inherit;
+    padding: 0;
 }

@@ -1,6 +1,16 @@
-
 <div class="course-item">
-    <h2>{{course.name}}</h2>
-    <img src="{{course.image}}">
-    <p>{{course.description}}</p>
+  <header class="course-item-header">
+    <aside *ngIf="isLogged">
+      <div class="material-symbols-outlined" *ngIf="!isEditing" (click)="editCourse()">edit</div>
+      <div class="material-symbols-outlined" *ngIf="isEditing" (click)="saveCourse()">check</div>
+    </aside>
+
+    <h2 *ngIf="!isEditing">{{ course.name }}</h2>
+    <input *ngIf="isEditing" value="{{course.name}}" class="editable-heading"  [(ngModel)]="course.name"/>
+  </header>
+
+  <img [src]="course.image" />
+
+  <p *ngIf="!isEditing">{{ course.description }}</p>
+  <textarea class="editable-paragraph" *ngIf="isEditing" [(ngModel)]="course.description"></textarea>
 </div>

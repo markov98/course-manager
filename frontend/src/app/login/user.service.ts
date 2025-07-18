@@ -23,6 +23,10 @@ export class UserService implements OnDestroy {
     return !!this.user;
   }
 
+  get accessToken(): string {
+    return this.user?.accessToken || '';
+  }
+
   constructor(private http: HttpClient) {
     // Subscribe to user state changes and synchronize with cookies  
     this.userSubscription = this.user$.subscribe((user) => {
