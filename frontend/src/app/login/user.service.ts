@@ -40,13 +40,18 @@ export class UserService implements OnDestroy {
   }
 
 
-  logout() {
+logout() {
     return this.http
-      .post(`${api}/users/logout`, {})
-      .pipe(tap(() => {
-        this.user$$.next(undefined)
-      }));
-  }
+    .post(`${api}/users/logout`, {}, {
+      headers: {
+        'X-Authorization': this.user?.accessToken || ''
+      }
+    })
+    .pipe(
+      tap(() => this.user$$.next(undefined))
+    );
+}
+
 
   // Unsubscribes from user updates to prevent memory leaks
   ngOnDestroy(): void {

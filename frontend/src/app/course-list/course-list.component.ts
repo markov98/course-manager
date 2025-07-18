@@ -28,22 +28,28 @@ export class CourseListComponent implements OnInit {
     this.form = this.fb.group({
       searchQuery: ['']
     });
-   }
+  }
 
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
 
-  logout() { }
+  logout(): void {
+    this.userService.logout().subscribe({
+      next: () => {
+        console.log('Successful Logout!');
+      }
+    })
+   }
 
-search(): void {
-  const searchQuery  = this.form.value.searchQuery.toLowerCase();
+  search(): void {
+    const searchQuery = this.form.value.searchQuery.toLowerCase();
 
-  this.filteredCourses = this.courses.filter((currCourse) => {
-    return currCourse.name.toLowerCase().includes(searchQuery) ||
-           currCourse.description.toLowerCase().includes(searchQuery);
-  });
-}
+    this.filteredCourses = this.courses.filter((currCourse) => {
+      return currCourse.name.toLowerCase().includes(searchQuery) ||
+        currCourse.description.toLowerCase().includes(searchQuery);
+    });
+  }
 
 
   ngOnInit(): void {

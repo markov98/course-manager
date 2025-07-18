@@ -1,6 +1,6 @@
 <div class="top">
     <a *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Log-in</a>
-    <span *ngIf="isLoggedIn" class="logout" (click)="logout()">Log-out</span>
+    <span *ngIf="isLoggedIn" class="logout" (click)="logout()" style="cursor: pointer;">Log-out</span>
 </div>
 <h1 class="course-list-heading">Courses</h1>
 <main>

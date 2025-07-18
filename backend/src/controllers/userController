@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const userService = require('../services/userService');
+const { isAuth, revokeToken } = require('../middlewares/authMiddleware');
 
 router.post('/login', async (req, res) => {
     try {
@@ -10,6 +11,11 @@ router.post('/login', async (req, res) => {
         console.log(err);
         res.status(400).json({ error: err.message });
     }
+});
+
+router.post("/logout", isAuth, (req, res) => {
+    revokeToken(req.token);
+    res.json({ message: "Logout successful!" });
 });
 
 module.exports = router;
