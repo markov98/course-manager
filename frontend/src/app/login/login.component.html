@@ -1,5 +1,17 @@
-<h1 class="login-heading">Welcome!</h1>
-<section class="login-container">
-    <h2></h2>
-    <form></form>
-</section>
+<h1 class="login-heading">Welcome</h1>
+<form class="login-container">
+    <h2 class="login-subheading">Let's get you logged-in</h2>
+    <div class="login-inputs-container">
+        <div>
+            <input type="email" placeholder="Your email">
+            <div class="material-symbols-outlined">email</div>
+        </div>
+        <div>
+            <input [type]="showPassword ? 'text' : 'password'" placeholder="Your password">
+            <div class="material-symbols-outlined" (click)="togglePassword()" style="cursor: pointer;">
+                {{ showPassword ? 'visibility_off' : 'visibility' }}
+            </div>
+        </div>
+    </div>
+    <button type="submit">Log-in</button>
+</form>
