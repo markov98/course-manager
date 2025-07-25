@@ -3,7 +3,7 @@ const db = require('../config/db')
 const { SECRET } = require("../constants");
 
 exports.login = async (email, password) => {
-    const stmt = db.prepare('SELECT id, email, email, password FROM users WHERE email = ?');
+    const stmt = db.prepare('SELECT id, email, password FROM users WHERE email = ?');
     const user = stmt.get(email);
 
     if (!user) {
