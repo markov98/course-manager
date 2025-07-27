@@ -15,7 +15,7 @@ docker-compose build
 docker-compose up
 ```
 
-Access the app at localhost:4200
+Access the app at localhost:80
 
 ## Test Users
 You can use the following credentials to log in for testing:
